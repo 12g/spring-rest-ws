@@ -1,4 +1,4 @@
-# FERME Backend Webservice
+# Spring REST Example Project
 
 ## Requirements
 
