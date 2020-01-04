@@ -19,8 +19,8 @@ import javax.persistence.ManyToOne;
  * @author Benjamin Guillermo <got12g at gmail.com>
  */
 @Entity
-@Table(name = "PEOPLE")
-@NamedQueries({ @NamedQuery(name = "Person.findAll", query = "SELECT p FROM Person p") })
+@Table(name = "PHONE")
+@NamedQueries({ @NamedQuery(name = "Phone.findAll", query = "SELECT p FROM Phone p") })
 public class Phone
     implements Serializable {
   private static final long serialVersionUID = 6555850390378326768L;
