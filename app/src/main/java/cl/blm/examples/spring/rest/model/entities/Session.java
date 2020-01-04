@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
  * @author Benjamin Guillermo <got12g at gmail.com>
  */
 @Entity
-@Table(name = "SESSION")
+@Table(name = "SESSIONS")
 @NamedQueries({ @NamedQuery(name = "Session.findAll", query = "SELECT u FROM Session u") })
 public class Session
     implements Serializable {
