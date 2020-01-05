@@ -2,8 +2,7 @@ package cl.blm.examples.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import cl.blm.examples.spring.rest.RestConfig;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
@@ -12,7 +11,8 @@ import org.springframework.context.annotation.PropertySources;
  * @author Benjamin Guillermo <got12g at gmail.com>
  */
 @SpringBootApplication
-@PropertySources({@PropertySource("file:logging.properties")})
+@ComponentScan
+@PropertySources({@PropertySource("classpath:logging.properties")})
 public class App {
   /**
    * Application starting point.
@@ -20,7 +20,7 @@ public class App {
    * @param args
    */
   public static void main(String[] args) {
-    SpringApplication.run(RestConfig.class, args);
+    SpringApplication.run(App.class, args);
   }
 
 }

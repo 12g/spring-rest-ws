@@ -19,7 +19,7 @@ import javax.persistence.ManyToOne;
  * @author Benjamin Guillermo <got12g at gmail.com>
  */
 @Entity
-@Table(name = "PHONE")
+@Table(name = "PHONES")
 @NamedQueries({ @NamedQuery(name = "Phone.findAll", query = "SELECT p FROM Phone p") })
 public class Phone
     implements Serializable {

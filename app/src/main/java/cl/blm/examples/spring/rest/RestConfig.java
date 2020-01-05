@@ -1,7 +1,8 @@
 package cl.blm.examples.spring.rest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -9,18 +10,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 
 /**
  *
  * @author Benjamin Guillermo <got12g at gmail.com>
  */
 @Configuration
-@ComponentScan
-@PropertySources({ @PropertySource("file:http.properties") })
 public abstract class RestConfig
     implements WebMvcConfigurer {
+  private Logger LOG = LoggerFactory.getLogger(RestConfig.class);
 
   @Bean
   public ObjectMapper objectMapper() {
@@ -32,6 +30,7 @@ public abstract class RestConfig
 
   @Override
   public void addCorsMappings(CorsRegistry registry) {
+    LOG.debug("addCorsMappings");
     registry.addMapping("/api/*").allowedOrigins("http://localhost:4200") // angular app
         .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE").exposedHeaders("Authorization");
   }

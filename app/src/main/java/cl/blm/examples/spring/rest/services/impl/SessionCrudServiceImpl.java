@@ -6,6 +6,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.querydsl.core.types.Predicate;
 
@@ -18,6 +20,8 @@ import cl.blm.examples.spring.rest.services.CrudService;
  *
  * @author Benjamin Guillermo <got12g at gmail.com>
  */
+@Transactional
+@Service
 public class SessionCrudServiceImpl
         implements CrudService<SessionDto, String> {
   private static final Logger LOG = LoggerFactory.getLogger(SessionCrudServiceImpl.class);

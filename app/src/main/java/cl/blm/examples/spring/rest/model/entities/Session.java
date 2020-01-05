@@ -32,7 +32,7 @@ public class Session
   //@formatter:off
   @Id
   @Column(name = "SESSION_ID")
-  private Integer id;
+  private Long id;
 
   @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH, optional = false)
   @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID", insertable = true, updatable = true)
@@ -53,16 +53,16 @@ public class Session
     super();
   }
 
-  public Session(Integer id) {
+  public Session(Long id) {
     super();
     this.id = id;
   }
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(long id) {
     this.id = id;
   }
 

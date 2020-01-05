@@ -23,8 +23,6 @@ import cl.blm.examples.spring.rest.services.AuthService;
 import cl.blm.examples.spring.rest.util.DateUtil;
 import cl.blm.examples.spring.rest.util.HashUtil;
 
-//TODO fix method logs to debug their execution parameters
-
 /**
  *
  * @author Benjamin Guillermo <got12g at gmail.com>
@@ -38,7 +36,7 @@ public class AuthServiceImpl
   @Autowired private SessionRepository sessions;
 
   private String sessionPayloadForUser(User user) {
-    LOG.info("sessionPayload");
+    LOG.debug("sessionPayload({})", user);
     String currentDateTime = DateUtil.formatDate(Calendar.getInstance().getTime());
     return new StringBuilder().append("[").append(user.toString()).append(" connected at ").append(currentDateTime).append("]").toString();
   }
@@ -52,7 +50,7 @@ public class AuthServiceImpl
 
   @Override
   public Long identifyUser(LoginPojo credentials) {
-    LOG.info("login");
+    LOG.debug("login({})", credentials);
     BooleanBuilder byCredentials = new BooleanBuilder();
     Optional<User> userQuery = users.findOne(byCredentials);
     if (userQuery.isPresent()) {
@@ -64,7 +62,7 @@ public class AuthServiceImpl
 
   @Override
   public String generateToken(Long userId) {
-    LOG.info("generateToken");
+    LOG.debug("generateToken({})", userId);
     Optional<User> userQuery = users.findById(userId);
 
     if (!userQuery.isPresent()) {
@@ -77,7 +75,7 @@ public class AuthServiceImpl
 
   @Override
   public boolean validateToken(String token) {
-    LOG.info("validateToken");
+    LOG.debug("validateToken({})", token);
     Date now = Calendar.getInstance().getTime();
     long nowMs = now.getTime();
     boolean thereIsAnotherActiveSession = false;
@@ -106,6 +104,7 @@ public class AuthServiceImpl
 
   @Override
   public boolean killToken(String token) {
+    LOG.debug("killToken({}}", token);
     Date now = Calendar.getInstance().getTime();
     Predicate notClosedAndMatchingToken = this.filterSessionsWhereNotClosedAndMatchingToken(token);
     Iterable<Session> itrSessions = sessions.findAll(notClosedAndMatchingToken);

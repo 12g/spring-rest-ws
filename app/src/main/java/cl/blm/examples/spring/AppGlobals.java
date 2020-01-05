@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
  *
  * @author Benjamin Guillermo <got12g at gmail.com>
  */
-@PropertySource("file:custom.properties")
+@PropertySource("classpath:custom.properties")
 public abstract class AppGlobals {
   @Value("${items.per_page}") public static int ITEMS_PER_PAGE;
 

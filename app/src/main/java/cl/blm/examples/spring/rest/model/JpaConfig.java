@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @Configuration
 @EntityScan(basePackages = { "cl.blm.examples.spring.rest.model.entities" })
-@EnableJpaRepositories(basePackages = { "cl.blm.spring.rest.model.repositories" })
-@PropertySources({ @PropertySource("file:jpa.properties"), @PropertySource("file:datasource.properties") })
+@EnableJpaRepositories(basePackages = { "cl.blm.examples.spring.rest.model.repositories" })
+@PropertySources({ @PropertySource("classpath:jpa.properties"), @PropertySource("classpath:datasource.properties") })
 public class JpaConfig {
 }

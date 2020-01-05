@@ -6,7 +6,7 @@
   <parent>
     <groupId>cl.blm.examples</groupId>
     <artifactId>spring-rest-ws</artifactId>
-    <version>0.7</version>
+    <version>0.7.1</version>
   </parent>
   <artifactId>spring-rest-ws-package</artifactId>
   <packaging>ear</packaging>

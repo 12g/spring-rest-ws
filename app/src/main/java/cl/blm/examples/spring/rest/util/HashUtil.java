@@ -27,7 +27,7 @@ public abstract class HashUtil {
    */
   @Nullable
   public static String hash(String data) {
-    LOG.debug("hash()");
+    LOG.debug("hash");
     try {
       byte[] payload = data.getBytes(Charset.forName(AppGlobals.CRYPTOGRAPHIC_CHARSET));
 
@@ -45,7 +45,7 @@ public abstract class HashUtil {
 
       return sb.toString();
     } catch (Exception ex) {
-      //TODO log
+      LOG.error("Couldn't hash input data", ex);
       return null;
     }
   }
@@ -58,7 +58,7 @@ public abstract class HashUtil {
    * @return
    */
   public static String encrypt(String data) {
-    LOG.debug("encrypt()");
+    LOG.debug("encrypt");
     return hash(AppGlobals.CRYPTOGRAPHIC_SALT + data);
   }
 }

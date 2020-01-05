@@ -6,7 +6,7 @@
 	
   <groupId>cl.blm.examples</groupId>
   <artifactId>spring-rest-ws</artifactId>
-  <version>0.7</version>
+  <version>0.7.1</version>
   <packaging>pom</packaging>
 	
   <name>Spring REST Example Project</name>
@@ -21,6 +21,7 @@
     <oracle.jdbc.version>12.2.0.1</oracle.jdbc.version>
     <mariadb.jdbc.version>2.1.2</mariadb.jdbc.version>
     <swagger.io.version>2.9.2</swagger.io.version>
+    <tomcat.version>8.5.50</tomcat.version>
   </properties>
 	
   <modules>
